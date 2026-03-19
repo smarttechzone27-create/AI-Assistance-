@@ -1,21 +1,26 @@
 export default async function handler(req, res) {
-  // Only allow POST requests
+  // ✅ Handle CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  // ✅ Handle preflight request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Only allow POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
   const { message } = req.body;
 
-  // If no message provided, return 400
   if (!message) {
     return res.status(400).json({ error: "Message is required" });
   }
 
   try {
-    // Add CORS header so Carrd can call this API
-    res.setHeader("Access-Control-Allow-Origin", "*");
-
-    // Simulate AI reply by echoing the user message
     const reply = `You said: ${message}`;
 
     res.status(200).json({ reply });
