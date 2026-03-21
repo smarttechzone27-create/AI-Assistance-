@@ -21,7 +21,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const reply = `You said: ${message}`;
+    const reply = "THIS IS NEW BACKEND";
 
     res.status(200).json({ reply });
 
