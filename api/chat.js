@@ -21,7 +21,27 @@ export default async function handler(req, res) {
   }
 
   try {
-    const reply = "THIS IS NEW BACKEND";
+    import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const completion = await openai.chat.completions.create({
+  model: "gpt-4o-mini",
+  messages: [
+    {
+      role: "system",
+      content: "You are a professional business chatbot that helps visitors and answers questions clearly."
+    },
+    {
+      role: "user",
+      content: message
+    }
+  ],
+});
+
+const reply = completion.choices[0].message.content;
 
     res.status(200).json({ reply });
 
