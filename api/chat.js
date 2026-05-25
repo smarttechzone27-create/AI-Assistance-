@@ -1,5 +1,3 @@
-import OpenAI from "openai";
-
 export default async function handler(req, res) {
   // CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -17,29 +15,49 @@ export default async function handler(req, res) {
   try {
     const { message } = req.body;
 
-    if (!message) {
-      return res.status(400).json({ reply: "No message provided" });
-    }
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "deepseek/deepseek-chat-v3-0324",
+        messages: [
+          {
+            role: "system",
+            content: `
+You are SmartTechZone AI assistant.
 
-    const openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+You help visitors understand our services:
+- AI chatbot development
+- Website design
+- Automation
+- Business tech solutions
+
+Be professional and helpful.
+`
+          },
+          {
+            role: "user",
+            content: message
+          }
+        ]
+      })
     });
 
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: message }
-      ],
-    });
+    const data = await response.json();
 
-    const reply = completion.choices?.[0]?.message?.content || "No response";
+    const reply =
+      data.choices?.[0]?.message?.content ||
+      "No response generated";
 
-    return res.status(200).json({ reply });
+    res.status(200).json({ reply });
 
   } catch (error) {
-    console.error("ERROR:", error);
-    return res.status(500).json({
+    console.error(error);
+
+    res.status(500).json({
       reply: "Server error: " + error.message
     });
   }
