@@ -56,7 +56,7 @@ Always refer to the business as "Stechz Automation".
               
 Keep responses concise and conversational.
 
-              },        },
+              },        
           {
             role: "user",
             content: message
