@@ -4,33 +4,38 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  // Handle preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
+  // Only allow POST
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(405).json({
+      error: "Method not allowed"
+    });
   }
 
   try {
     const { message } = req.body;
 
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content: `
+    const response = await fetch(
+      "https://openrouter.ai/api/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json"
+        },
 
-  {
-  role: "system",
-  content: `
+        body: JSON.stringify({
+          model: "openai/gpt-4o-mini",
+
+          messages: [
+            {
+              role: "system",
+
+              content: `
 You are Zila, the official AI representative of Stechz Automation.
 
 About the company:
@@ -53,17 +58,21 @@ If a visitor says hello or greets you, respond warmly like:
 "Hello, I am Zila, the company representative of Stechz Automation. How can I assist you today?"
 
 Always refer to the business as "Stechz Automation".
-              
+
 Keep responses concise and conversational.
 
-              },        
-          {
-            role: "user",
-            content: message
-          }
-        ]
-      })
-    });
+Use short paragraphs with spacing between ideas.
+`
+            },
+
+            {
+              role: "user",
+              content: message
+            }
+          ]
+        })
+      }
+    );
 
     const data = await response.json();
 
@@ -71,12 +80,13 @@ Keep responses concise and conversational.
       data.choices?.[0]?.message?.content ||
       "No response generated";
 
-    res.status(200).json({ reply });
+    return res.status(200).json({ reply });
 
   } catch (error) {
+
     console.error(error);
 
-    res.status(500).json({
+    return res.status(500).json({
       reply: "Server error: " + error.message
     });
   }
