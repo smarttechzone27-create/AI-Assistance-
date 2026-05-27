@@ -1,10 +1,11 @@
 export default async function handler(req, res) {
+
   // CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  // Handle preflight
+  // Handle OPTIONS
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
@@ -17,21 +18,25 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message } = req.body;
+
+    const { messages } = req.body;
 
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
       {
         method: "POST",
+
         headers: {
           "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json"
         },
 
         body: JSON.stringify({
+
           model: "openai/gpt-4o-mini",
 
           messages: [
+
             {
               role: "system",
 
@@ -62,12 +67,9 @@ Keep responses concise and conversational.
 
 Use short paragraphs with spacing between ideas.
 `
-},
+            },
 
-            {
-              role: "user",
-              content: message
-            }
+            ...messages
           ]
         })
       }
@@ -79,7 +81,9 @@ Use short paragraphs with spacing between ideas.
       data.choices?.[0]?.message?.content ||
       "No response generated";
 
-    return res.status(200).json({ reply });
+    return res.status(200).json({
+      reply
+    });
 
   } catch (error) {
 
