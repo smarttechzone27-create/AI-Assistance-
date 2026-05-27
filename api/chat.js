@@ -21,14 +21,14 @@ export default async function handler(req, res) {
 
     const { message, messages } = req.body;
 
-const conversationMessages =
-  messages ||
-  [
-    {
-      role: "user",
-      content: message
-    }
-  ];
+    const conversationMessages =
+      messages ||
+      [
+        {
+          role: "user",
+          content: message
+        }
+      ];
 
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
@@ -44,7 +44,7 @@ const conversationMessages =
 
           model: "openai/gpt-4o-mini",
 
-          ...conversationMessages [
+          messages: [
 
             {
               role: "system",
@@ -78,7 +78,7 @@ Use short paragraphs with spacing between ideas.
 `
             },
 
-            ...messages
+            ...conversationMessages
           ]
         })
       }
