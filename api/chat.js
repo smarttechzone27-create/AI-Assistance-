@@ -44,7 +44,7 @@ const conversationMessages =
 
           model: "openai/gpt-4o-mini",
 
-          messages: [
+          ...conversationMessages [
 
             {
               role: "system",
