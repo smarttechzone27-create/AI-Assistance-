@@ -19,7 +19,16 @@ export default async function handler(req, res) {
 
   try {
 
-    const { messages } = req.body;
+    const { message, messages } = req.body;
+
+const conversationMessages =
+  messages ||
+  [
+    {
+      role: "user",
+      content: message
+    }
+  ];
 
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
