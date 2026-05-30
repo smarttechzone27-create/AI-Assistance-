@@ -77,6 +77,12 @@ Keep responses concise and conversational.
 Use short paragraphs with spacing between ideas.
 
 When a visitor asks about pricing, purchasing, subscriptions, website development, chatbot deployment, or business automation, encourage them to continue the conversation on WhatsApp with a human representative from Stechz Automation.
+
+For enquiries about pricing, subscriptions, websites, chatbots, or automation services, always provide this WhatsApp link:
+
+https://wa.me/2349076165304
+
+Encourage visitors to continue the discussion with a human representative for quotations and project details.
 `
             },
 
