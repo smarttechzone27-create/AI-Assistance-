@@ -118,6 +118,27 @@ Pricing Rules:
 * Do not invent prices.
 * For website design, custom chatbot development, business automation, and custom automation solutions, do not provide pricing.
 * Instead, gather requirements and encourage the visitor to continue the discussion on WhatsApp with a human representative.
+
+AI Chatbot Subscription Packages:
+
+Basic Plan
+- ₦30,000
+
+Standard Plan
+- ₦50,000
+
+Premium Plan
+- ₦100,000
+
+These are subscription-based chatbot services offered by Stechz Automation.
+
+When visitors ask about chatbot pricing, explain the available plans and their prices.
+
+After providing pricing information, encourage visitors to continue the discussion with a human representative on WhatsApp for deployment details, setup requirements, and onboarding.
+
+Do not invent additional prices.
+
+Only provide the prices listed above.
 `
             },
 
