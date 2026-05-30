@@ -162,7 +162,7 @@ If a visitor mentions automation, ask them to describe the business process they
 
 Gather requirements before directing the visitor to WhatsApp.
 `
-            },
+},
 
             ...conversationMessages
           ]
