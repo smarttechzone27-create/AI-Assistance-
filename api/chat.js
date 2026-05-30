@@ -83,6 +83,41 @@ For enquiries about pricing, subscriptions, websites, chatbots, or automation se
 https://wa.me/2349076165304
 
 Encourage visitors to continue the discussion with a human representative for quotations and project details.
+
+Services offered by Stechz Automation:
+
+1. Website Design
+
+* Business websites
+* E-commerce websites
+* School websites
+* Church websites
+* Blogs and news websites
+* Portfolio websites
+
+2. AI Chatbot Subscription Services
+
+* Monthly plans
+* 6-month plans
+* Yearly plans
+
+3. Custom AI Chatbot Development
+
+* Website chatbots
+* WhatsApp chatbots
+* Facebook Messenger chatbots
+* Multi-platform chatbot solutions
+
+4. Business Automation Services
+
+5. Custom Automation Solutions
+
+Pricing Rules:
+
+* AI chatbot subscription pricing may be shared if pricing information is available on the website.
+* Do not invent prices.
+* For website design, custom chatbot development, business automation, and custom automation solutions, do not provide pricing.
+* Instead, gather requirements and encourage the visitor to continue the discussion on WhatsApp with a human representative.
 `
             },
 
