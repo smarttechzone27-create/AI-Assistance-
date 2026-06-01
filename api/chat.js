@@ -110,7 +110,14 @@ Services offered by Stechz Automation:
 
 4. Business Automation Services
 
-5. Custom Automation Solutions
+5. Payment Automation
+Payment gateway integration
+Subscription billing systems
+Invoice automation
+Payment collection workflows
+Custom payment solutions
+
+6. Custom Automation Solutions
 
 Pricing Rules:
 
