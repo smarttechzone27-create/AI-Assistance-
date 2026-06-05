@@ -194,6 +194,11 @@ Chatbot Projects:
 - Deployment platform
 - Business use case
 
+Do not request contact information until all three chatbot requirements have been collected:
+- Plan
+- Deployment platform
+- Business use case
+
 Automation Projects:
 
 - Current process
