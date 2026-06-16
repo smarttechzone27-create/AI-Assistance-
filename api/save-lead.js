@@ -45,7 +45,12 @@ export default async function handler(req, res) {
     );
 
     const hubspotData =
-      await hubspotResponse.json();
+  await hubspotResponse.json();
+
+console.log(
+  "HubSpot Response:",
+  hubspotData
+);
 
     // SEND EMAIL ALERT USING RESEND
 
@@ -89,6 +94,90 @@ export default async function handler(req, res) {
         })
       }
     );
+
+    // SEND THANK YOU EMAIL TO VISITOR
+
+await fetch(
+  "https://api.resend.com/emails",
+  {
+    method: "POST",
+    headers: {
+      Authorization:
+        `Bearer ${process.env.RESEND_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      from:
+        "Stechz Automation <onboarding@resend.dev>",
+
+      to: [email],
+
+      subject:
+        "Thank You for Contacting Stechz Automation",
+
+      html: `
+        <h2>Thank You for Contacting Stechz Automation</h2>
+
+        <p>Hello,</p>
+
+        <p>
+          We have successfully received your request.
+        </p>
+
+        <p>
+          A member of our team will review your
+          requirements and contact you shortly.
+        </p>
+
+        <p>
+          In the meantime, you may find the
+          following resources helpful:
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://stechzautomation.com/how-it-works-2/">
+              How It Works
+            </a>
+          </li>
+
+          <li>
+            <a href="https://stechzautomation.com/services/">
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a href="https://stechzautomation.com/pricing/">
+              Pricing
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          For immediate assistance, contact us on
+          WhatsApp:
+        </p>
+
+        <p>
+          <a href="https://wa.me/2349076165304">
+            Chat on WhatsApp
+          </a>
+        </p>
+
+        <p>
+          Thank you for choosing
+          Stechz Automation.
+        </p>
+
+        <p>
+          Regards,<br>
+          Stechz Automation Team
+        </p>
+      `
+    })
+  }
+);
 
     return res.status(200).json({
       success: true,
