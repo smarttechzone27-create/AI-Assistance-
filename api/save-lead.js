@@ -108,7 +108,6 @@ await fetch(
     },
     body: JSON.stringify({
       from:
-        from:
   "Stechz Automation <hello@stechzautomation.com>",
 
       to: [email],
