@@ -64,7 +64,7 @@ console.log(
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          from: "Zila Leads <onboarding@resend.dev>",
+          from: "Zila Leads <hello@stechzautomation.com>",
 
           to: [
             "stechzautomation@gmail.com"
@@ -108,7 +108,8 @@ await fetch(
     },
     body: JSON.stringify({
       from:
-        "Stechz Automation <onboarding@resend.dev>",
+        from:
+  "Stechz Automation <hello@stechzautomation.com>",
 
       to: [email],
 
