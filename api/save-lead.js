@@ -44,12 +44,31 @@ export default async function handler(req, res) {
       }
     );
 
-    const hubspotData =
-  await hubspotResponse.json();
+    const dealResponse = await fetch(
+  "https://api.hubapi.com/crm/v3/objects/deals",
+  {
+    method: "POST",
+    headers: {
+      Authorization:
+        `Bearer ${process.env.HUBSPOT_SERVICE_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      properties: {
+        dealname: `Zila Lead - ${name}`,
+        pipeline: "default",
+        dealstage: "appointmentscheduled"
+      }
+    })
+  }
+);
+
+const dealData =
+  await dealResponse.json();
 
 console.log(
-  "HubSpot Response:",
-  hubspotData
+  "Deal Response:",
+  dealData
 );
 
     // SEND EMAIL ALERT USING RESEND
