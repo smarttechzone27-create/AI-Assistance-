@@ -49,53 +49,35 @@ export default async function handler(req, res) {
 
 console.log(
   "HubSpot Response:",
-  hubspotData
+  JSON.stringify(hubspotData, null, 2)
 );
 
 // CREATE DEAL IN HUBSPOT
+    const dealResponse = await fetch(
+  "https://api.hubapi.com/crm/v3/objects/deals",
+  {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.HUBSPOT_SERVICE_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      properties: {
+        dealname: `Zila Lead - ${name}`,
+        pipeline: "default",
+        dealstage: "appointmentscheduled"
+      }
+    })
+  }
+);
 
-try {
+const dealData = await dealResponse.json();
 
-  const dealResponse = await fetch(
-    "https://api.hubapi.com/crm/v3/objects/deals",
-    {
-      method: "POST",
-      headers: {
-        Authorization:
-          `Bearer ${process.env.HUBSPOT_SERVICE_KEY}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        properties: {
-          dealname:
-            `Zila Lead - ${name}`,
-
-          pipeline:
-            "default",
-
-          dealstage:
-            "appointmentscheduled"
-        }
-      })
-    }
-  );
-
-  const dealData =
-    await dealResponse.json();
-
-  console.log(
-    "Deal Response:",
-    dealData
-  );
-
-} catch (dealError) {
-
-  console.error(
-    "Deal Creation Error:",
-    dealError
-  );
-
-}
+console.log(
+  "Deal Response:",
+  JSON.stringify(dealData, null, 2)
+);
+    
 
     // SEND EMAIL ALERT USING RESEND
 
