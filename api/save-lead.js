@@ -17,11 +17,12 @@ export default async function handler(req, res) {
   try {
 
     const {
-      name,
-      email,
-      phone,
-      source
-    } = req.body;
+  name,
+  email,
+  phone,
+  source,
+  leadSummary
+} = req.body;
 
     // SAVE TO HUBSPOT
 
@@ -84,12 +85,20 @@ console.log(
 
             <p><strong>Source:</strong> ${source}</p>
 
-            <hr>
+<hr>
 
-            <p>
-              This lead was collected
-              automatically by Zila.
-            </p>
+<h3>Lead Qualification Summary</h3>
+
+<p style="white-space: pre-line;">
+${leadSummary || "No summary available"}
+</p>
+
+<hr>
+
+<p>
+  This lead was collected
+  automatically by Zila.
+</p>
           `
         })
       }
