@@ -283,7 +283,7 @@ Request Summary
 
 ✓ Project Type: [website, chatbot, automation, etc.]
 
-✓ Requirements: [brief summary]
+✓ Requirements: [brief summary including deployment platform, use case, business name, industry, website URL if provided, and budget range]
 
 ✓ Contact Information: Received
 
