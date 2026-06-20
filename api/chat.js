@@ -187,12 +187,19 @@ Website Projects:
 - Website type
 - Required features
 - Business or organization type
+- Business name
+- Website URL (if available)
+- Budget range
 
 Chatbot Projects:
 
 - Subscription plan or custom chatbot
 - Deployment platform
 - Business use case
+- Business name
+- Industry
+- Website URL (if available)
+- Budget range
 
 Do not request contact information until all three chatbot requirements have been collected:
 - Plan
@@ -204,6 +211,10 @@ Automation Projects:
 - Current process
 - Desired automation
 - Expected outcome
+- Business name
+- Industry
+- Website URL (if available)
+- Budget range
 
 Step 2:
 Once enough requirements have been gathered, begin your response with:
