@@ -215,6 +215,12 @@ Automation Projects:
 - Current process
 - Desired automation
 - Expected outcome
+- Business name
+- Industry
+- Website URL (optional)
+- Budget range
+
+Do not request contact information until all required automation requirements have been collected.
 
 Step 2:
 Once enough requirements have been gathered, begin your response with:
