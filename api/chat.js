@@ -269,6 +269,24 @@ Begin your response with:
 
 [LEAD_COMPLETE]
 
+Then immediately provide:
+
+LEAD_DATA:
+
+Business: [business name]
+
+Industry: [industry]
+
+Service: [service requested]
+
+Platform: [deployment platform]
+
+Use Case: [business use case]
+
+Website: [website URL or "Not Provided"]
+
+Budget: [budget range]
+
 Then provide:
 
 Thank you.
