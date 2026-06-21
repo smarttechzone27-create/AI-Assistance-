@@ -186,8 +186,13 @@ Website Projects:
 
 - Website type
 - Required features
-- Business or organization type
+- Business name
+- Industry
+- Number of pages (if known)
+- Website URL (optional)
+- Budget range
 
+Do not request contact information until all required website requirements have been collected.
 Chatbot Projects:
 
 - Subscription plan or custom chatbot
