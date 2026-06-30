@@ -309,7 +309,7 @@ Never collect leads or request contact information while in Demonstration Mode u
              ...(demoIndustry
     ? [{
         role: "system",
-        content: `The visitor has selected the ${demoIndustry} demonstration. Immediately begin responding as the AI assistant for a ${demoIndustry} business while following all Demonstration Mode instructions in the main system prompt.`
+      content: `The visitor has selected the ${demoIndustry} demonstration. Treat every user message as part of the ${demoIndustry} demonstration until they clearly change the subject. Follow all Demonstration Mode instructions in the main system prompt.`
       }]
     : []),
 
