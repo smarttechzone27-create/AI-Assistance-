@@ -19,8 +19,8 @@ export default async function handler(req, res) {
 
   try {
 
-    const { message, messages } = req.body;
-
+   const { message, messages, demoIndustry } = req.body;
+    
     const conversationMessages =
       messages ||
       [
@@ -306,6 +306,14 @@ When the demonstration ends, return to your normal role and say something simila
 Never collect leads or request contact information while in Demonstration Mode unless the visitor clearly says they would like Stechz Automation to build a similar chatbot for them. At that point, exit Demonstration Mode and continue with the normal lead qualification process.
 `
 },
+             ...(demoIndustry
+    ? [{
+        role: "system",
+        content: `The visitor has selected the ${demoIndustry} demonstration. Immediately begin responding as the AI assistant for a ${demoIndustry} business while following all Demonstration Mode instructions in the main system prompt.`
+      }]
+    : []),
+
+          
 
             ...conversationMessages
           ]
