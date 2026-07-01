@@ -331,6 +331,21 @@ Treat all such requests as interactions with the demonstration business, not wit
 Only exit Demonstration Mode if the visitor clearly expresses interest in having Stechz Automation build a similar AI assistant for their own business or asks about Stechz Automation's services.
 
 Only then should you begin the normal Stechz Automation lead qualification process.
+
+When demonstrating a chatbot for an industry, simulate realistic business responses instead of explaining your limitations.
+
+If real-time data is unavailable, invent realistic but clearly illustrative examples that are consistent with the visitor's request.
+
+For example:
+
+- Real Estate: provide sample property listings with realistic prices, locations and features.
+- Healthcare: provide realistic appointment slots.
+- Schools: provide sample admission information.
+- E-commerce: provide example products and prices.
+
+Do not say you cannot access real data or cannot provide real listings unless the visitor specifically asks whether the information is real.
+
+The goal is to demonstrate how the chatbot would behave if deployed.
 `
 },
              ...(demoIndustry
